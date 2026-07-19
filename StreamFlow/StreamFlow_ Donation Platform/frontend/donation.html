@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>โดเนท — StreamFlow</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/css/donation.css">
+</head>
+
+<body>
+  <div class="donate-page">
+    <div class="donate-wrapper animate-fade-up">
+      <div class="donate-card">
+        <div class="donate-header">
+          <img id="profileAvatar" class="avatar"
+            src="https://api.dicebear.com/9.x/initials/svg?seed=S&backgroundColor=6d28d9" alt="Avatar">
+          <h2 id="streamerName">กำลังโหลด...</h2>
+        </div>
+
+        <div class="donate-body">
+          <form id="donationForm">
+            <div class="form-group">
+              <label>ชื่อของคุณ</label>
+              <input type="text" id="donorName" class="form-control" placeholder="ไม่ระบุชื่อ" maxlength="50">
+            </div>
+            <div class="form-group">
+              <label>ข้อความ</label>
+              <textarea id="message" class="form-control" rows="3" placeholder="พิมพ์ข้อความถึงสตรีมเมอร์..."
+                maxlength="255"></textarea>
+            </div>
+
+            <input type="hidden" id="amount" value="0">
+
+            <div class="form-group" id="transferSection">
+              <label>โอนเงินไปที่</label>
+              <div class="payment-box">
+                <div class="row"
+                  style="flex-direction: column; align-items: center; gap: 16px; text-align: center; padding: 12px 0;">
+                  <img src="/img/pp.png" alt="PromptPay"
+                    style="height: 56px; width: auto; max-width: 140px; object-fit: contain; border-radius: 8px; background-color: white; padding: 6px;">
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <span class="label" style="font-size: 14px;">หมายเลขบัญชีพร้อมเพย์</span>
+                    <span class="value" id="accountNo" style="font-size: 22px;">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>อัปโหลดสลิปโอนเงิน</label>
+              <div class="drop-zone" id="dropZone">
+                <div class="dz-icon"></div>
+                <div class="dz-text"><strong>คลิกเพื่ออัปโหลด</strong> หรือลากไฟล์มาวาง</div>
+                <input type="file" id="slipFile" accept="image/*" required>
+              </div>
+              <img id="slipPreview" class="slip-preview">
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn btn-primary btn-lg w-full">ส่งโดเนท</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-box">
+      <div class="success-check">✓</div>
+      <h2>ขอบคุณ!</h2>
+      <p class="text-muted" id="successMessage">โดเนทของคุณได้รับการตรวจสอบและส่งแล้ว!</p>
+      <div class="verify-badge" id="verifyBadge">
+        <div class="vb-row"><span>สลิปผ่านการตรวจสอบแล้ว!</span></div>
+        <p>แจ้งเตือนโดเนทถูกส่งไปยังสตรีมเมอร์แล้ว</p>
+      </div>
+      <button class="btn btn-primary btn-lg mt-4"
+        onclick="document.getElementById('successOverlay').classList.remove('show')">ปิด</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="toast-notification" id="toastNotification">
+    <span id="toastMessage"></span>
+  </div>
+
+  <script src="/js/donation.js"></script>
+</body>
+
+</html>

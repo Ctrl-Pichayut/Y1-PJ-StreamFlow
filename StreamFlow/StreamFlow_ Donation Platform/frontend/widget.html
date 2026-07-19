@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Donation Alert Widget</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/widget.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+  <div id="alert-container">
+    <div class="alert-header" id="alert-header">
+      <span class="highlight-text" id="alert-donor"></span>
+      โดเนทให้
+      <span class="highlight-text" id="alert-amount"></span>
+    </div>
+    <div class="alert-message" id="alert-message"></div>
+  </div>
+  <script src="/js/widget.js"></script>
+</body>
+
+</html>
